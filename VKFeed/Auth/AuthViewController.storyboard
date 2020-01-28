@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4dx-Fh-vdu">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Auth View Controller-->
+        <scene sceneID="RKB-Sw-6sB">
+            <objects>
+                <viewController id="4dx-Fh-vdu" customClass="AuthViewController" customModule="VKFeed" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kto-AI-vPV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QcL-Gi-5Dj">
+                                <rect key="frame" x="137" y="428" width="140" height="40"/>
+                                <color key="backgroundColor" red="0.93276642115113861" green="0.92697284089554144" blue="0.93856000140673579" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="AU6-69-CM0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal" title="Войти в вк">
+                                    <color key="titleColor" red="0.22760196913099409" green="0.38707731507492404" blue="0.96401392487046633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="signInTouch" destination="4dx-Fh-vdu" eventType="touchUpInside" id="EDb-At-RDk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="QcL-Gi-5Dj" firstAttribute="centerX" secondItem="kto-AI-vPV" secondAttribute="centerX" id="2VO-5X-fpS"/>
+                            <constraint firstItem="QcL-Gi-5Dj" firstAttribute="centerY" secondItem="kto-AI-vPV" secondAttribute="centerY" id="SUn-l6-7r8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DgQ-0g-6Ze"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="RBK-jR-tam"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SjI-yx-ZHA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1068.1159420289855" y="138.61607142857142"/>
+        </scene>
+    </scenes>
+</document>
