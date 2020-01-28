@@ -11,6 +11,9 @@
 		151A538F23DED9F3001DD1ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151A538E23DED9F3001DD1ED /* SceneDelegate.swift */; };
 		151A539623DED9F4001DD1ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 151A539523DED9F4001DD1ED /* Assets.xcassets */; };
 		151A539923DED9F4001DD1ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151A539723DED9F4001DD1ED /* LaunchScreen.storyboard */; };
+		151B2BB123E0698E004A262B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151B2BB023E0698E004A262B /* FeedViewController.swift */; };
+		151B2BB323E06998004A262B /* FeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151B2BB223E06998004A262B /* FeedViewController.storyboard */; };
+		151B2BB823E07820004A262B /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151B2BB723E07820004A262B /* UIViewController + Storyboard.swift */; };
 		155326DE23DEE89F00F9B57B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155326DD23DEE89F00F9B57B /* AuthService.swift */; };
 		155326E123DEEBC900F9B57B /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155326E023DEEBC900F9B57B /* AuthViewController.swift */; };
 		155326E323DEEBD900F9B57B /* AuthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 155326E223DEEBD900F9B57B /* AuthViewController.storyboard */; };
@@ -18,12 +21,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		151A538923DED9F3001DD1ED /* VKFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		151A538923DED9F3001DD1ED /* VKFeed1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKFeed1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		151A538C23DED9F3001DD1ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		151A538E23DED9F3001DD1ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		151A539523DED9F4001DD1ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		151A539823DED9F4001DD1ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		151A539A23DED9F4001DD1ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		151B2BB023E0698E004A262B /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		151B2BB223E06998004A262B /* FeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedViewController.storyboard; sourceTree = "<group>"; };
+		151B2BB723E07820004A262B /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
 		155326DD23DEE89F00F9B57B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		155326E023DEEBC900F9B57B /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		155326E223DEEBD900F9B57B /* AuthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthViewController.storyboard; sourceTree = "<group>"; };
@@ -65,7 +71,7 @@
 		151A538A23DED9F3001DD1ED /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				151A538923DED9F3001DD1ED /* VKFeed.app */,
+				151A538923DED9F3001DD1ED /* VKFeed1.0.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,13 +81,40 @@
 			children = (
 				151A538C23DED9F3001DD1ED /* AppDelegate.swift */,
 				151A538E23DED9F3001DD1ED /* SceneDelegate.swift */,
+				151B2BB423E0699C004A262B /* Feed */,
 				155326E423DEEBEC00F9B57B /* Auth */,
 				155326DF23DEE8B300F9B57B /* Services */,
-				151A539523DED9F4001DD1ED /* Assets.xcassets */,
-				151A539723DED9F4001DD1ED /* LaunchScreen.storyboard */,
+				151B2BB623E07801004A262B /* Helpers */,
+				151B2BAF23E056AB004A262B /* Supporting Files */,
 				151A539A23DED9F4001DD1ED /* Info.plist */,
 			);
 			path = VKFeed;
+			sourceTree = "<group>";
+		};
+		151B2BAF23E056AB004A262B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				151A539523DED9F4001DD1ED /* Assets.xcassets */,
+				151A539723DED9F4001DD1ED /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		151B2BB423E0699C004A262B /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				151B2BB023E0698E004A262B /* FeedViewController.swift */,
+				151B2BB223E06998004A262B /* FeedViewController.storyboard */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		151B2BB623E07801004A262B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				151B2BB723E07820004A262B /* UIViewController + Storyboard.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		155326DF23DEE8B300F9B57B /* Services */ = {
@@ -129,7 +162,7 @@
 			);
 			name = VKFeed;
 			productName = VKFeed;
-			productReference = 151A538923DED9F3001DD1ED /* VKFeed.app */;
+			productReference = 151A538923DED9F3001DD1ED /* VKFeed1.0.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -173,6 +206,7 @@
 				151A539923DED9F4001DD1ED /* LaunchScreen.storyboard in Resources */,
 				155326E323DEEBD900F9B57B /* AuthViewController.storyboard in Resources */,
 				151A539623DED9F4001DD1ED /* Assets.xcassets in Resources */,
+				151B2BB323E06998004A262B /* FeedViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +261,8 @@
 			files = (
 				155326E123DEEBC900F9B57B /* AuthViewController.swift in Sources */,
 				151A538D23DED9F3001DD1ED /* AppDelegate.swift in Sources */,
+				151B2BB123E0698E004A262B /* FeedViewController.swift in Sources */,
+				151B2BB823E07820004A262B /* UIViewController + Storyboard.swift in Sources */,
 				151A538F23DED9F3001DD1ED /* SceneDelegate.swift in Sources */,
 				155326DE23DEE89F00F9B57B /* AuthService.swift in Sources */,
 			);
@@ -374,7 +410,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = f.VKFeed;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = VKFeed1.0;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -395,7 +431,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = f.VKFeed;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = VKFeed1.0;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

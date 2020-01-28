@@ -17,8 +17,9 @@ protocol AuthServiceDelegate: class {
 }
 
 final class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
+    static var shared = AuthService()
     
-    private let appId = "7296760"
+    private let appId = "7298369"
     private var vkSdk: VKSdk
     
     weak var delegate: AuthServiceDelegate?
@@ -40,7 +41,8 @@ final class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
                 print("VKAuthorizationState.authorized")
                 self?.delegate?.authServiceSignIn()
             } else if state == VKAuthorizationState.initialized {
-                VKSdk.authorize(scope)
+               // VKSdk.authorize(scope)
+                VKSdk.authorize(scope, with: .disableSafariController)
                 print("VKAuthorizationState.initialized")
             } else {
                 self?.delegate?.authServiceDidSignIn()
@@ -53,7 +55,9 @@ final class AuthService: NSObject, VKSdkDelegate, VKSdkUIDelegate {
     
     func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
         print(#function)
-        delegate?.authServiceSignIn()
+        if result.token != nil {
+            delegate?.authServiceSignIn()
+        }
     }
     
     func vkSdkUserAuthorizationFailed() {

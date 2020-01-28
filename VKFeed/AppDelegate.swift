@@ -12,24 +12,10 @@ import VK_ios_sdk;
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
         
-    var authService: AuthService!
-    
-    static func shared() -> AppDelegate {
-        return UIApplication.shared.delegate as! AppDelegate
-    }
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-
-        authService = AuthService()
-        
-        VKSdk.processOpen(URL(fileURLWithPath: "vk7296760"), fromApplication: UIApplication.OpenURLOptionsKey.sourceApplication.rawValue)
-        
-        
-        
+        // Override point for customization after application launch
         return true
     }
-    
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         print(UIApplication.OpenURLOptionsKey.sourceApplication.rawValue)

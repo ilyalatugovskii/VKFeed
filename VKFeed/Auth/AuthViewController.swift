@@ -15,31 +15,11 @@ class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        authService = AppDelegate.shared().authService
-        authService.delegate = self
+        authService = AuthService.shared
     }
     
     @IBAction func signInTouch() {
         authService.wakeUpSession()
     }
-    
-
-}
-
-extension AuthViewController: AuthServiceDelegate {
-    func authServiceShouldShow(_ viewController: UIViewController) {
-
-        present(viewController, animated: true, completion: nil)
-
-    }
-    
-    func authServiceSignIn() {
-        print(#function)
-    }
-    
-    func authServiceDidSignIn() {
-         print(#function)
-    }
-    
     
 }
