@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
        
         window = UIWindow(windowScene: _scene)
         let authVC: AuthViewController = .loadViewController()
-        window?.rootViewController = authVC
+        window?.rootViewController = RootViewController(current: authVC)
         window?.makeKeyAndVisible()
     }
 
@@ -61,18 +61,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 extension SceneDelegate: AuthServiceDelegate {
     func authServiceShouldShow(_ viewController: UIViewController) {
-        window?.rootViewController?.present(viewController, animated: true, completion: nil)
+        rootViewController.present(viewController, animated: true, completion: nil)
     }
     
     func authServiceSignIn() {
-        let feedVC: FeedViewController = .loadViewController()
-        let navVC = UINavigationController(rootViewController: feedVC)
-        window?.rootViewController = navVC
+        guard let tabBarVC = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as? UITabBarController else { return }
+        rootViewController.switchMainScreen(to: tabBarVC)
     }
     
     func authServiceDidSignIn() {
-        print(#function)
+        let authVC: AuthViewController = .loadViewController()
+        rootViewController.switchLogout(to: authVC)
     }
     
     
+}
+
+extension SceneDelegate {
+    var rootViewController: RootViewController {
+        return window!.rootViewController as! RootViewController
+    }
 }
