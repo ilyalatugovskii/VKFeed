@@ -9,7 +9,7 @@
 import Foundation
 
 struct API {
-    static let sheme = "https"
+    static let sсheme = "https"
     static let host = "api.vk.com"
     static let version = "5.103"
     
