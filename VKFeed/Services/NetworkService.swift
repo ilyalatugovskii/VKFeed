@@ -21,7 +21,7 @@ final class NetworkService: Networking {
     
     func getFeed() {
         
-        let params = ["filters": "post,photo"]
+        
     
         
     }
