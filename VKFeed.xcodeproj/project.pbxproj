@@ -14,6 +14,7 @@
 		151B2BB123E0698E004A262B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151B2BB023E0698E004A262B /* FeedViewController.swift */; };
 		151B2BB323E06998004A262B /* FeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151B2BB223E06998004A262B /* FeedViewController.storyboard */; };
 		151B2BB823E07820004A262B /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151B2BB723E07820004A262B /* UIViewController + Storyboard.swift */; };
+		151CCA6823E2C35D00A30D4F /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CCA6723E2C35D00A30D4F /* NetworkDataFetcher.swift */; };
 		152F3EC223E1720C00120D62 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152F3EC123E1720C00120D62 /* RootViewController.swift */; };
 		152F3EC423E17B0600120D62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 152F3EC323E17B0600120D62 /* Main.storyboard */; };
 		152F3EC723E1867F00120D62 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152F3EC623E1867F00120D62 /* NetworkService.swift */; };
@@ -35,6 +36,7 @@
 		151B2BB023E0698E004A262B /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		151B2BB223E06998004A262B /* FeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedViewController.storyboard; sourceTree = "<group>"; };
 		151B2BB723E07820004A262B /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
+		151CCA6723E2C35D00A30D4F /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		152F3EC123E1720C00120D62 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		152F3EC323E17B0600120D62 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		152F3EC623E1867F00120D62 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				155326DD23DEE89F00F9B57B /* AuthService.swift */,
+				151CCA6723E2C35D00A30D4F /* NetworkDataFetcher.swift */,
 				152F3EC623E1867F00120D62 /* NetworkService.swift */,
 				152F3EC823E1874400120D62 /* API.swift */,
 				152F3EC123E1720C00120D62 /* RootViewController.swift */,
@@ -294,6 +297,7 @@
 				155326E123DEEBC900F9B57B /* AuthViewController.swift in Sources */,
 				151A538D23DED9F3001DD1ED /* AppDelegate.swift in Sources */,
 				151B2BB123E0698E004A262B /* FeedViewController.swift in Sources */,
+				151CCA6823E2C35D00A30D4F /* NetworkDataFetcher.swift in Sources */,
 				152F3EC223E1720C00120D62 /* RootViewController.swift in Sources */,
 				151B2BB823E07820004A262B /* UIViewController + Storyboard.swift in Sources */,
 				151A538F23DED9F3001DD1ED /* SceneDelegate.swift in Sources */,
