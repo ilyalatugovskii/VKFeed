@@ -25,14 +25,14 @@
             </objects>
             <point key="canvasLocation" x="-552" y="-245"/>
         </scene>
-        <!--FeedViewController-->
+        <!--NewsFeedViewController-->
         <scene sceneID="elY-bc-WVb">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JAJ-3J-3jW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewControllerPlaceholder storyboardName="FeedViewController" id="PNK-ur-s43" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="NewsFeedViewController" id="PNK-ur-s43" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="xyZ-a7-Gga"/>
                     <navigationItem key="navigationItem" id="W3D-We-bwt"/>
                 </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JAJ-3J-3jW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1299" y="-652"/>
         </scene>

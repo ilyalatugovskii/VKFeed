@@ -17,7 +17,7 @@ class FeedViewController: UIViewController {
         
         fetcher.getFeed { (feedResponse) in
             guard let feedResponse = feedResponse else { return }
-            feedResponse.items.map { print($0.date) }
+            feedResponse.items.forEach({ print($0.date) })
         }
     }
 
