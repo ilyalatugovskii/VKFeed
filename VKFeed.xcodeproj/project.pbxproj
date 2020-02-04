@@ -27,6 +27,7 @@
 		155326DE23DEE89F00F9B57B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155326DD23DEE89F00F9B57B /* AuthService.swift */; };
 		155326E123DEEBC900F9B57B /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155326E023DEEBC900F9B57B /* AuthViewController.swift */; };
 		155326E323DEEBD900F9B57B /* AuthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 155326E223DEEBD900F9B57B /* AuthViewController.storyboard */; };
+		15E24A9423E9AAE400D51989 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E24A9323E9AAE400D51989 /* WebImageView.swift */; };
 		195CDA350967AA9E1CCDBCFF /* Pods_VKFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9A759CFE4530353D136541B /* Pods_VKFeed.framework */; };
 		F5103A3523E4CCCA00EB2942 /* NewsFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5103A3423E4CCCA00EB2942 /* NewsFeedCell.swift */; };
 		F5103A3723E4CD1400EB2942 /* NewsFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5103A3623E4CD1400EB2942 /* NewsFeedCell.xib */; };
@@ -56,6 +57,7 @@
 		155326DD23DEE89F00F9B57B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		155326E023DEEBC900F9B57B /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		155326E223DEEBD900F9B57B /* AuthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthViewController.storyboard; sourceTree = "<group>"; };
+		15E24A9323E9AAE400D51989 /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
 		48B21A49825E6589E9DFFE9F /* Pods-VKFeed.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFeed.debug.xcconfig"; path = "Target Support Files/Pods-VKFeed/Pods-VKFeed.debug.xcconfig"; sourceTree = "<group>"; };
 		86A79D70254D94AF8B6D79B2 /* Pods-VKFeed.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VKFeed.release.xcconfig"; path = "Target Support Files/Pods-VKFeed/Pods-VKFeed.release.xcconfig"; sourceTree = "<group>"; };
 		F5103A3423E4CCCA00EB2942 /* NewsFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedCell.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				151B2BB723E07820004A262B /* UIViewController + Storyboard.swift */,
+				15E24A9323E9AAE400D51989 /* WebImageView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				151CCA7123E2D2D300A30D4F /* NewsFeedPresenter.swift in Sources */,
 				151CCA6823E2C35D00A30D4F /* NetworkDataFetcher.swift in Sources */,
 				151CCA7523E2D2D300A30D4F /* NewsFeedViewController.swift in Sources */,
+				15E24A9423E9AAE400D51989 /* WebImageView.swift in Sources */,
 				152F3EC223E1720C00120D62 /* RootViewController.swift in Sources */,
 				151CCA7623E2D2D300A30D4F /* NewsFeedInteractor.swift in Sources */,
 				151B2BB823E07820004A262B /* UIViewController + Storyboard.swift in Sources */,
