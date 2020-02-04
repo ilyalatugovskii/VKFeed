@@ -11,8 +11,6 @@
 		151A538F23DED9F3001DD1ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151A538E23DED9F3001DD1ED /* SceneDelegate.swift */; };
 		151A539623DED9F4001DD1ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 151A539523DED9F4001DD1ED /* Assets.xcassets */; };
 		151A539923DED9F4001DD1ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151A539723DED9F4001DD1ED /* LaunchScreen.storyboard */; };
-		151B2BB123E0698E004A262B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151B2BB023E0698E004A262B /* FeedViewController.swift */; };
-		151B2BB323E06998004A262B /* FeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151B2BB223E06998004A262B /* FeedViewController.storyboard */; };
 		151B2BB823E07820004A262B /* UIViewController + Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151B2BB723E07820004A262B /* UIViewController + Storyboard.swift */; };
 		151CCA6823E2C35D00A30D4F /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CCA6723E2C35D00A30D4F /* NetworkDataFetcher.swift */; };
 		151CCA7123E2D2D300A30D4F /* NewsFeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CCA6A23E2D2D300A30D4F /* NewsFeedPresenter.swift */; };
@@ -42,8 +40,6 @@
 		151A539523DED9F4001DD1ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		151A539823DED9F4001DD1ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		151A539A23DED9F4001DD1ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		151B2BB023E0698E004A262B /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
-		151B2BB223E06998004A262B /* FeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedViewController.storyboard; sourceTree = "<group>"; };
 		151B2BB723E07820004A262B /* UIViewController + Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Storyboard.swift"; sourceTree = "<group>"; };
 		151CCA6723E2C35D00A30D4F /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		151CCA6A23E2D2D300A30D4F /* NewsFeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedPresenter.swift; sourceTree = "<group>"; };
@@ -112,7 +108,6 @@
 				151A538C23DED9F3001DD1ED /* AppDelegate.swift */,
 				151A538E23DED9F3001DD1ED /* SceneDelegate.swift */,
 				F5467FD323E226D4004D8FCD /* Model */,
-				151B2BB423E0699C004A262B /* Feed */,
 				155326E423DEEBEC00F9B57B /* Auth */,
 				155326DF23DEE8B300F9B57B /* Services */,
 				151CCA6923E2D29A00A30D4F /* NewsFeed */,
@@ -131,15 +126,6 @@
 				151A539723DED9F4001DD1ED /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		151B2BB423E0699C004A262B /* Feed */ = {
-			isa = PBXGroup;
-			children = (
-				151B2BB023E0698E004A262B /* FeedViewController.swift */,
-				151B2BB223E06998004A262B /* FeedViewController.storyboard */,
-			);
-			path = Feed;
 			sourceTree = "<group>";
 		};
 		151B2BB623E07801004A262B /* Helpers */ = {
@@ -286,7 +272,6 @@
 				151CCA7923E2D6C800A30D4F /* NewsFeedViewController.storyboard in Resources */,
 				155326E323DEEBD900F9B57B /* AuthViewController.storyboard in Resources */,
 				151A539623DED9F4001DD1ED /* Assets.xcassets in Resources */,
-				151B2BB323E06998004A262B /* FeedViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,7 +328,6 @@
 				155326E123DEEBC900F9B57B /* AuthViewController.swift in Sources */,
 				151CCA7223E2D2D300A30D4F /* NewsFeedWorker.swift in Sources */,
 				151A538D23DED9F3001DD1ED /* AppDelegate.swift in Sources */,
-				151B2BB123E0698E004A262B /* FeedViewController.swift in Sources */,
 				151CCA7123E2D2D300A30D4F /* NewsFeedPresenter.swift in Sources */,
 				151CCA6823E2C35D00A30D4F /* NetworkDataFetcher.swift in Sources */,
 				151CCA7523E2D2D300A30D4F /* NewsFeedViewController.swift in Sources */,

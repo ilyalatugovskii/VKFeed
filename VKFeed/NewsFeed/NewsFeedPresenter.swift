@@ -18,15 +18,23 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
   func presentData(response: NewsFeed.Model.Response.ResponseType) {
     
     switch response {
-   
-    case .some:
-        print(".some presenter")
-    case .presentNewsFeed:
-        print(".presentNewsFeed presenter")
-        viewController?.displayData(viewModel: .displayNewsFeed)
         
+    case .presentNewsFeed(let feedResponse):
+        let cells = feedResponse.items.map { cellViewModel(from: $0) }
+        let feedViewModel = FeedViewModel(cells: cells)
+        viewController?.displayData(viewModel: .displayNewsFeed(feedViewModel: feedViewModel))
     }
   
   }
   
+    private func cellViewModel(from feedItem: FeedItem) -> FeedViewModel.Cell {
+        return FeedViewModel.Cell(iconUrlString: "",
+                                  name: "name",
+                                  date: "future data",
+                                  text: feedItem.text,
+                                  likes: String(feedItem.likes?.count ?? 0),
+                                  comments: String(feedItem.coments?.count ?? 0),
+                                  shaares: String(feedItem.reposts?.count ?? 0),
+                                  views: String(feedItem.views?.count ?? 0))
+    }
 }
