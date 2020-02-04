@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -41,7 +41,7 @@
                         </subviews>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0o-jY-tgS">
-                        <rect key="frame" x="12" y="59" width="390" height="100"/>
+                        <rect key="frame" x="12" y="59" width="394" height="48"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
@@ -121,6 +121,10 @@
                             </view>
                         </subviews>
                     </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vGo-EG-UXc" customClass="WebImageView" customModule="VKFeed1_0" customModuleProvider="target">
+                        <rect key="frame" x="12" y="111" width="394" height="52"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                    </imageView>
                 </subviews>
             </tableViewCellContentView>
             <connections>
@@ -129,6 +133,7 @@
                 <outlet property="iconImageView" destination="305-je-SyY" id="api-pu-BQj"/>
                 <outlet property="likesLabel" destination="ooe-9M-VO8" id="QAo-NJ-rJM"/>
                 <outlet property="nameLabel" destination="QHG-DF-yeX" id="4c9-eo-JTi"/>
+                <outlet property="postImageView" destination="vGo-EG-UXc" id="vq4-pn-BvU"/>
                 <outlet property="postLabel" destination="b0o-jY-tgS" id="pek-67-jhz"/>
                 <outlet property="sharesLabel" destination="KXd-Zd-ti5" id="avP-3L-rr6"/>
                 <outlet property="viewsLabel" destination="T4H-l6-ukz" id="skd-uN-Ec2"/>
