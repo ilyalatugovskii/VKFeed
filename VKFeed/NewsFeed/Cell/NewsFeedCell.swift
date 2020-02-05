@@ -31,6 +31,7 @@ class NewsFeedCell: UITableViewCell {
     
     static let reuseIdentifier = "NewsFeedCell"
     
+    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var iconImageView: WebImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -46,6 +47,11 @@ class NewsFeedCell: UITableViewCell {
         super.awakeFromNib()
         iconImageView.layer.cornerRadius = iconImageView.frame.width / 2
         iconImageView.clipsToBounds = true
+        
+        backView.layer.cornerRadius = 10
+        backView.clipsToBounds = true
+        backgroundColor = .clear
+        selectionStyle = .none
     }
     
     func set(viewModel: FeedCellViewModel) {
