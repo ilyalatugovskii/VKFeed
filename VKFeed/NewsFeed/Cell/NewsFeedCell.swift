@@ -33,6 +33,7 @@ protocol FeedCellSizes {
     var attachmentFrame: CGRect { get }
     var bottomViewFrame: CGRect { get }
     var totalHeight: CGFloat { get }
+    var moreTextButtonFrame: CGRect { get }
 }
 
 class NewsFeedCell: UITableViewCell {

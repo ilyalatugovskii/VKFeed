@@ -27,6 +27,9 @@
 		155326DE23DEE89F00F9B57B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155326DD23DEE89F00F9B57B /* AuthService.swift */; };
 		155326E123DEEBC900F9B57B /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155326E023DEEBC900F9B57B /* AuthViewController.swift */; };
 		155326E323DEEBD900F9B57B /* AuthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 155326E223DEEBD900F9B57B /* AuthViewController.storyboard */; };
+		1572AE6A23F150A600D385D3 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1572AE6923F150A600D385D3 /* Constraints.swift */; };
+		1572AE6C23F1510E00D385D3 /* NewsFeedCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1572AE6B23F1510E00D385D3 /* NewsFeedCodeCell.swift */; };
+		1572AE6E23F1589500D385D3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1572AE6D23F1589500D385D3 /* Constants.swift */; };
 		15C5144523EAC1EE0058F8E7 /* NewsFeedCellLayoutCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C5144423EAC1EE0058F8E7 /* NewsFeedCellLayoutCalculator.swift */; };
 		15C5144723EADB990058F8E7 /* String + height.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C5144623EADB990058F8E7 /* String + height.swift */; };
 		15E24A9423E9AAE400D51989 /* WebImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E24A9323E9AAE400D51989 /* WebImageView.swift */; };
@@ -59,6 +62,9 @@
 		155326DD23DEE89F00F9B57B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		155326E023DEEBC900F9B57B /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		155326E223DEEBD900F9B57B /* AuthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AuthViewController.storyboard; sourceTree = "<group>"; };
+		1572AE6923F150A600D385D3 /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		1572AE6B23F1510E00D385D3 /* NewsFeedCodeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedCodeCell.swift; sourceTree = "<group>"; };
+		1572AE6D23F1589500D385D3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		15C5144423EAC1EE0058F8E7 /* NewsFeedCellLayoutCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedCellLayoutCalculator.swift; sourceTree = "<group>"; };
 		15C5144623EADB990058F8E7 /* String + height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + height.swift"; sourceTree = "<group>"; };
 		15E24A9323E9AAE400D51989 /* WebImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebImageView.swift; sourceTree = "<group>"; };
@@ -139,6 +145,7 @@
 			children = (
 				151B2BB723E07820004A262B /* UIViewController + Storyboard.swift */,
 				15E24A9323E9AAE400D51989 /* WebImageView.swift */,
+				1572AE6923F150A600D385D3 /* Constraints.swift */,
 				15C5144623EADB990058F8E7 /* String + height.swift */,
 			);
 			path = Helpers;
@@ -203,6 +210,8 @@
 				F5103A3423E4CCCA00EB2942 /* NewsFeedCell.swift */,
 				F5103A3623E4CD1400EB2942 /* NewsFeedCell.xib */,
 				15C5144423EAC1EE0058F8E7 /* NewsFeedCellLayoutCalculator.swift */,
+				1572AE6D23F1589500D385D3 /* Constants.swift */,
+				1572AE6B23F1510E00D385D3 /* NewsFeedCodeCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -334,9 +343,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				151CCA7423E2D2D300A30D4F /* NewsFeedModels.swift in Sources */,
+				1572AE6A23F150A600D385D3 /* Constraints.swift in Sources */,
 				155326E123DEEBC900F9B57B /* AuthViewController.swift in Sources */,
 				151CCA7223E2D2D300A30D4F /* NewsFeedWorker.swift in Sources */,
 				151A538D23DED9F3001DD1ED /* AppDelegate.swift in Sources */,
+				1572AE6C23F1510E00D385D3 /* NewsFeedCodeCell.swift in Sources */,
+				1572AE6E23F1589500D385D3 /* Constants.swift in Sources */,
 				151CCA7123E2D2D300A30D4F /* NewsFeedPresenter.swift in Sources */,
 				151CCA6823E2C35D00A30D4F /* NetworkDataFetcher.swift in Sources */,
 				151CCA7523E2D2D300A30D4F /* NewsFeedViewController.swift in Sources */,

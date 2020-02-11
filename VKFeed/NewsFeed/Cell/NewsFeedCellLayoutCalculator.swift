@@ -13,19 +13,13 @@ struct Sizes: FeedCellSizes {
     var bottomViewFrame: CGRect
     var totalHeight: CGFloat
     var postLabelFrame: CGRect
+    var moreTextButtonFrame: CGRect
     var attachmentFrame: CGRect
 }
 
-struct Constants {
-    static let backInsets = UIEdgeInsets(top: 0, left: 8, bottom: 12, right: 8)
-    static let topViewHeight: CGFloat = 41
-    static let postLabelInsets = UIEdgeInsets(top: 5 + Constants.topViewHeight + 3, left: 5, bottom: 5, right: 5)
-    static let postLabelFont = UIFont.systemFont(ofSize: 15)
-    static let bottomViewHeight: CGFloat = 44
-}
-
 protocol FeedCellLayoutCalculatorProtocol {
-    func sizes(postText: String?, photoAttachment: FeedCellPhotoAttachmentViewModel?) -> FeedCellSizes
+    func sizes(postText: String?, photoAttachment: FeedCellPhotoAttachmentViewModel?, isFullSizePost: Bool) -> FeedCellSizes
+    
 }
 
 final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
@@ -36,7 +30,9 @@ final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
         self.screenWitdht = screenWitdht
     }
     
-    func sizes(postText: String?, photoAttachment: FeedCellPhotoAttachmentViewModel?) -> FeedCellSizes {
+    func sizes(postText: String?, photoAttachment: FeedCellPhotoAttachmentViewModel?, isFullSizePost: Bool) -> FeedCellSizes {
+        
+        var showMoreTextButton = false
         
         let backViewWith = screenWitdht - Constants.backInsets.left - Constants.backInsets.right
         
@@ -46,14 +42,33 @@ final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
         
         if let text = postText, !text.isEmpty {
             let witdth = backViewWith - Constants.postLabelInsets.left - Constants.postLabelInsets.right
-            let height = text.heigt(widht: witdth, font: Constants.postLabelFont)
+            var height = text.heigt(widht: witdth, font: Constants.postLabelFont)
+            
+            let limitHeight = Constants.postLabelFont.lineHeight * Constants.minifiedPostLimitLines
+            
+            if !isFullSizePost && height > limitHeight {
+                height = Constants.postLabelFont.lineHeight * Constants.minifiedPostLines
+                showMoreTextButton = true
+            }
             
             postLabelFrame.size = CGSize(width: witdth, height: height)
         }
         
+         //MARK: - work with moreTextButton
+        
+        var moreTextButtonSize = CGSize.zero
+        
+        if showMoreTextButton {
+            moreTextButtonSize = Constants.moreTextButtonSize
+        }
+        
+        let moreTextButtonOrigin = CGPoint(x: Constants.moreTextButtonInsets.left, y: postLabelFrame.maxY)
+        
+        let moreTextButtonFrame = CGRect(origin: moreTextButtonOrigin, size: moreTextButtonSize)
+        
         //MARK: - work with attachmentFrame
         
-        let attachmentTop = postLabelFrame.size == CGSize.zero ? Constants.postLabelInsets.top : postLabelFrame.maxY + Constants.postLabelInsets.bottom
+        let attachmentTop = postLabelFrame.size == CGSize.zero ? Constants.postLabelInsets.top : moreTextButtonFrame.maxY + Constants.postLabelInsets.bottom
         
         var attachmentFrame = CGRect(origin: CGPoint(x: CGFloat.zero, y: attachmentTop), size: CGSize.zero)
         
@@ -67,14 +82,16 @@ final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
         //MARK: - work with bottomViewFrame
         
         let bottomViewTop = max(postLabelFrame.maxY, attachmentFrame.maxY)
-        
         let bottomViewFrame = CGRect(origin: CGPoint(x: 0, y: bottomViewTop), size: CGSize(width: backViewWith, height: Constants.bottomViewHeight))
+        
+        //MARK: - work with totalHeight
         
         let totalHeight = bottomViewFrame.maxY + Constants.backInsets.bottom
         
         return Sizes(bottomViewFrame: bottomViewFrame,
                      totalHeight: totalHeight,
                      postLabelFrame: postLabelFrame,
+                     moreTextButtonFrame: moreTextButtonFrame,
                      attachmentFrame: attachmentFrame)
     }
     

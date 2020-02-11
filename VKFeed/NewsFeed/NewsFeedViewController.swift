@@ -12,8 +12,8 @@ protocol NewsFeedDisplayLogic: class {
   func displayData(viewModel: NewsFeed.Model.ViewModel.ViewModelData)
 }
 
-class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic {
-
+class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic, NewsFeedCodeCellDelegate {
+   
     @IBOutlet weak var tableView: UITableView!
     var interactor: NewsFeedBusinessLogic?
     var router: (NSObjectProtocol & NewsFeedRoutingLogic)?
@@ -44,7 +44,8 @@ class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic {
     super.viewDidLoad()
     setup()
 
-    tableView.register(UINib(nibName: "NewsFeedCell", bundle: nil), forCellReuseIdentifier: NewsFeedCell.reuseIdentifier)
+    //tableView.register(UINib(nibName: "NewsFeedCell", bundle: nil), forCellReuseIdentifier: NewsFeedCell.reuseIdentifier)
+    tableView.register(NewsFeedCodeCell.self, forCellReuseIdentifier: NewsFeedCodeCell.reuseID)
     
     interactor?.makeRequest(request: .getNewsFeed)
     
@@ -63,6 +64,15 @@ class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic {
     }
     
   }
+    
+    //MARK: - NewsFeedCodeCellDelegate
+     
+    func revealPost(for cell: NewsFeedCodeCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        let cellViewModel = feedViewModel.cells[indexPath.row]
+        
+        interactor?.makeRequest(request: .revealPostIds(postId: cellViewModel.postId))
+    }
   
 }
 
@@ -72,10 +82,12 @@ extension NewsFeedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedCell.reuseIdentifier, for: indexPath) as! NewsFeedCell
+        //let cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedCell.reuseIdentifier, for: indexPath) as! NewsFeedCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: NewsFeedCodeCell.reuseID, for: indexPath) as! NewsFeedCodeCell
         
         let cellViewModel = feedViewModel.cells[indexPath.row]
         cell.set(viewModel: cellViewModel)
+        cell.delegate = self
         
         return cell
     }
@@ -84,4 +96,7 @@ extension NewsFeedViewController: UITableViewDelegate, UITableViewDataSource {
         return feedViewModel.cells[indexPath.row].sizes.totalHeight
     }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return feedViewModel.cells[indexPath.row].sizes.totalHeight 
+    }
 }
