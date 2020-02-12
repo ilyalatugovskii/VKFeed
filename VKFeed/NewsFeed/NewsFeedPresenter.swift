@@ -56,10 +56,10 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
                                   name: profile.name,
                                   date: dateTitle,
                                   text: feedItem.text,
-                                  likes: String(feedItem.likes?.count ?? 0),
-                                  comments: String(feedItem.coments?.count ?? 0),
-                                  shaares: String(feedItem.reposts?.count ?? 0),
-                                  views: String(feedItem.views?.count ?? 0),
+                                  likes: formattedCounter(feedItem.likes?.count),
+                                  comments: formattedCounter(feedItem.coments?.count),
+                                  shaares: formattedCounter(feedItem.reposts?.count),
+                                  views: formattedCounter(feedItem.views?.count),
                                   photoAttachments: photoAttachments,
                                   sizes: sizes)
     }
@@ -72,6 +72,19 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
         }
         
         return profileRepresentable!
+    }
+    
+    private func formattedCounter(_ counter: Int?) -> String? {
+        guard let counter = counter, counter > 0 else { return nil }
+        
+        var counterString = String(counter)
+        if 4...6 ~= counterString.count {
+            counterString = String(counterString.dropLast(3)) + "K"
+        } else if counterString.count > 6 {
+            counterString = String(counterString.dropLast(6)) + "M"
+        }
+        
+        return counterString
     }
     
     private func photoAttachment(feedItem: FeedItem) -> FeedViewModel.FeedCellPhotoAttachment? {

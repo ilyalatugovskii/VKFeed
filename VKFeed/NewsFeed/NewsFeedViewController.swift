@@ -20,6 +20,11 @@ class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic, NewsFeedCo
   
     private var feedViewModel = FeedViewModel(cells: [])
     private var titleView = TitleView()
+    private var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        return refreshControl
+    }()
     
   // MARK: Setup
   
@@ -45,17 +50,26 @@ class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic, NewsFeedCo
     super.viewDidLoad()
     setup()
     setupTopBars()
+    setupTable()
     
-    //tableView.register(UINib(nibName: "NewsFeedCell", bundle: nil), forCellReuseIdentifier: NewsFeedCell.reuseIdentifier)
-    tableView.register(NewsFeedCodeCell.self, forCellReuseIdentifier: NewsFeedCodeCell.reuseID)
+    
     
     interactor?.makeRequest(request: .getNewsFeed)
     interactor?.makeRequest(request: .getUser)
     
-    tableView.separatorStyle = .none
-    tableView.backgroundColor = .clear
+   
     view.backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
   }
+    
+    private func setupTable() {
+        let topInset: CGFloat = 8
+        tableView.contentInset.top = topInset
+        
+        tableView.register(NewsFeedCodeCell.self, forCellReuseIdentifier: NewsFeedCodeCell.reuseID)
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .clear
+        tableView.addSubview(refreshControl)
+    }
   
     private func setupTopBars() {
         tabBarController?.navigationController?.hidesBarsOnSwipe = true
@@ -70,6 +84,7 @@ class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic, NewsFeedCo
     case .displayNewsFeed(let feedViewModel):
         self.feedViewModel = feedViewModel
         tableView.reloadData()
+        refreshControl.endRefreshing()
     case .displayUser(let userViewModel):
         titleView.set(userViewModel: userViewModel)
     }
@@ -83,6 +98,10 @@ class NewsFeedViewController: UIViewController, NewsFeedDisplayLogic, NewsFeedCo
         let cellViewModel = feedViewModel.cells[indexPath.row]
         
         interactor?.makeRequest(request: .revealPostIds(postId: cellViewModel.postId))
+    }
+    
+    @objc private func refresh() {
+        interactor?.makeRequest(request: .getNewsFeed)
     }
   
 }
