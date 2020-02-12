@@ -32,6 +32,9 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
         let cells = feedResponse.items.map { cellViewModel(from: $0, profiles: feedResponse.profiles, groups: feedResponse.groups, revealdedPostIds: revealedPostIds) }
         let feedViewModel = FeedViewModel(cells: cells)
         viewController?.displayData(viewModel: .displayNewsFeed(feedViewModel: feedViewModel))
+    case .presentUserInfo(let user):
+        let userViewModel = UserViewModel(photoUrlString: user?.photo100)
+        viewController?.displayData(viewModel: .displayUser(userViewModel: userViewModel))
     }
   
   }
