@@ -43,6 +43,8 @@ class NewsFeedCodeCell: UITableViewCell {
         return button
     }()
     
+    let gallaryCollectionView = GallaryCollectionView()
+    
     let postImageView: WebImageView = {
         let imageView = WebImageView()
         imageView.backgroundColor = #colorLiteral(red: 0.8900675178, green: 0.897811234, blue: 0.9103937745, alpha: 1)
@@ -59,7 +61,7 @@ class NewsFeedCodeCell: UITableViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 10
         view.clipsToBounds = true
-        view.backgroundColor = #colorLiteral(red: 0.9327664212, green: 0.9269728409, blue: 0.9385600014, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         return view
     }()
     
@@ -214,6 +216,7 @@ class NewsFeedCodeCell: UITableViewCell {
         backView.addSubview(postLabel)
         backView.addSubview(moreTextButton)
         backView.addSubview(postImageView)
+        backView.addSubview(gallaryCollectionView)
         backView.addSubview(bottomView)
         
         topView.leadingAnchor.constraint(equalTo: backView.leadingAnchor, constant: 8).isActive = true
@@ -318,15 +321,23 @@ class NewsFeedCodeCell: UITableViewCell {
         viewsLabel.text = viewModel.views
             
         postLabel.frame = viewModel.sizes.postLabelFrame
-        postImageView.frame = viewModel.sizes.attachmentFrame
         bottomView.frame = viewModel.sizes.bottomViewFrame
         moreTextButton.frame = viewModel.sizes.moreTextButtonFrame
         
-        if let photoAttachment = viewModel.photoAttachment {
+        if let photoAttachment = viewModel.photoAttachments.first, viewModel.photoAttachments.count == 1 {
             postImageView.set(imageURL: photoAttachment.photoUrlString)
             postImageView.isHidden = false
-        } else {
+            gallaryCollectionView.isHidden = true
+            postImageView.frame = viewModel.sizes.attachmentFrame
+        } else if viewModel.photoAttachments.count > 1 {
+            gallaryCollectionView.frame = viewModel.sizes.attachmentFrame
             postImageView.isHidden = true
+            gallaryCollectionView.isHidden = false
+            gallaryCollectionView.set(photos: viewModel.photoAttachments)
+        }
+        else {
+            postImageView.isHidden = true
+            gallaryCollectionView.isHidden = true
         }
     }
 }

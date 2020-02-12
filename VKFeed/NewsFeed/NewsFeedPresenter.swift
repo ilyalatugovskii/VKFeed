@@ -38,7 +38,7 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
   
     private func cellViewModel(from feedItem: FeedItem, profiles: [Profile], groups: [Group], revealdedPostIds: [Int]) -> FeedViewModel.Cell {
        
-        let photoAttachment = self.photoAttachment(feedItem: feedItem)
+        let photoAttachments = self.photoAttachments(feedItem: feedItem)
         
         let profile = self.profile(for: feedItem.sourceId, profiles: profiles, groups: groups)
         let date = Date(timeIntervalSince1970: feedItem.date)
@@ -46,7 +46,7 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
         
         let isFullSized = revealdedPostIds.contains { $0 == feedItem.postId }
         
-        let sizes = cellLayoutCalculator.sizes(postText: feedItem.text, photoAttachment: photoAttachment, isFullSizePost: isFullSized)
+        let sizes = cellLayoutCalculator.sizes(postText: feedItem.text, photoAttachments: photoAttachments, isFullSizePost: isFullSized)
         
         return FeedViewModel.Cell(postId: feedItem.postId,
                                   iconUrlString: profile.photo,
@@ -57,7 +57,7 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
                                   comments: String(feedItem.coments?.count ?? 0),
                                   shaares: String(feedItem.reposts?.count ?? 0),
                                   views: String(feedItem.views?.count ?? 0),
-                                  photoAttachment: photoAttachment,
+                                  photoAttachments: photoAttachments,
                                   sizes: sizes)
     }
     
@@ -77,5 +77,16 @@ class NewsFeedPresenter: NewsFeedPresentationLogic {
         }), let firstPhoto = photos.first else { return nil }
         
         return FeedViewModel.FeedCellPhotoAttachment(photoUrlString: firstPhoto.srcBIG, width: firstPhoto.width, height: firstPhoto.height)
+    }
+    
+    private func photoAttachments(feedItem: FeedItem) -> [FeedViewModel.FeedCellPhotoAttachment] {
+        guard let attachments = feedItem.attachments else { return [] }
+        
+        return attachments.compactMap { (attachment) -> FeedViewModel.FeedCellPhotoAttachment? in
+            guard let photo = attachment.photo else { return nil }
+            return FeedViewModel.FeedCellPhotoAttachment(photoUrlString: photo.srcBIG,
+                                                         width: photo.width,
+                                                         height: photo.height)
+        }
     }
 }

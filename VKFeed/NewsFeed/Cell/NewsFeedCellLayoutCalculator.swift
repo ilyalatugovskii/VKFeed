@@ -18,7 +18,7 @@ struct Sizes: FeedCellSizes {
 }
 
 protocol FeedCellLayoutCalculatorProtocol {
-    func sizes(postText: String?, photoAttachment: FeedCellPhotoAttachmentViewModel?, isFullSizePost: Bool) -> FeedCellSizes
+    func sizes(postText: String?, photoAttachments: [FeedCellPhotoAttachmentViewModel], isFullSizePost: Bool) -> FeedCellSizes
     
 }
 
@@ -30,7 +30,7 @@ final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
         self.screenWitdht = screenWitdht
     }
     
-    func sizes(postText: String?, photoAttachment: FeedCellPhotoAttachmentViewModel?, isFullSizePost: Bool) -> FeedCellSizes {
+    func sizes(postText: String?, photoAttachments: [FeedCellPhotoAttachmentViewModel], isFullSizePost: Bool) -> FeedCellSizes {
         
         var showMoreTextButton = false
         
@@ -72,11 +72,29 @@ final class FeedCellLayoutCalculator: FeedCellLayoutCalculatorProtocol {
         
         var attachmentFrame = CGRect(origin: CGPoint(x: CGFloat.zero, y: attachmentTop), size: CGSize.zero)
         
-        if let attachment = photoAttachment {
+//        if let attachment = photoAttachment {
+//            let aspectRatio = Float(attachment.width) / Float(attachment.height)
+//            let height = CGFloat(Float(backViewWith) / aspectRatio)
+//
+//            attachmentFrame.size = CGSize(width: backViewWith, height: height)
+//        }
+        
+        if let attachment = photoAttachments.first {
             let aspectRatio = Float(attachment.width) / Float(attachment.height)
             let height = CGFloat(Float(backViewWith) / aspectRatio)
+            if photoAttachments.count == 1 {
+                attachmentFrame.size = CGSize(width: backViewWith, height: height)
+            } else if photoAttachments.count > 1 {
+               var photos = [CGSize]()
+                for photo in photoAttachments {
+                    let photoSize = CGSize(width: CGFloat(photo.width), height: CGFloat(photo.height))
+                    photos.append(photoSize)
+                }
+                
+                let rowHeight = RowLayout.rowHeightCounter(superWitdth: backViewWith, photosArray: photos)
+                attachmentFrame.size = CGSize(width: backViewWith, height: rowHeight!)
+            }
             
-            attachmentFrame.size = CGSize(width: backViewWith, height: height)
         }
         
         //MARK: - work with bottomViewFrame
